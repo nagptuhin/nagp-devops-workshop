@@ -32,7 +32,7 @@ TODO
   "gender": "Female",
   "contact_info": "zara@example.com"
 }
-
+```
 
 ## ✅ Requirement Understanding
 
