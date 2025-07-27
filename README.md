@@ -6,7 +6,7 @@ Multi-tier Web application deployed in K8s
 ## 🔗 Project Links
 
 - **GitHub Repository**: https://github.com/nagptuhin/nagp-devops-workshop
-- **Docker Hub Image**: TODO
+- **Docker Hub Image**: nagptuhin/node-api:latest
 - **Live API Endpoint**: http://node.localtest.me/data  # Needs to be Replaced
 
 ## 📽️ Demo Video

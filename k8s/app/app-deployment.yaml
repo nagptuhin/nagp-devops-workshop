@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: node-api
-          image: node-api:local
-          imagePullPolicy: Never
+          image: nagptuhin/node-api
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
           envFrom:
