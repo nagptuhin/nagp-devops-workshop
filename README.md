@@ -22,7 +22,13 @@ TODO
 ## 📌 Endpoints
 
 - `GET /data` – Fetch all data
+```
+curl "http://node.localtest.me/data
+```
 - `GET /data?name=alice` – Search by name
+```
+curl "http://node.localtest.me/data?name=Alice"
+```
 - `POST /data` – Add new record (JSON body)
 
 ```json
@@ -32,6 +38,16 @@ TODO
   "gender": "Female",
   "contact_info": "zara@example.com"
 }
+```
+```
+curl -X POST http://node.localtest.me/data \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Alice",
+    "age": 28,
+    "gender": "Female",
+    "contact_info": "alice@example.com"
+  }'
 ```
 
 ## ✅ Requirement Understanding

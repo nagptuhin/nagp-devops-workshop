@@ -16,6 +16,18 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
+
+// Get all entries
+app.get('/data', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM items');
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error fetching all data:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 // GET /data?name=John - search entries by name (case-insensitive, partial match)
 app.get('/data', async (req, res) => {
   const name = req.query.name;
