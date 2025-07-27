@@ -31,6 +31,8 @@ spec:
                 configMapKeyRef:
                   name: db-config
                   key: DB_USER
+            - name: PGDATA
+              value: /var/lib/postgresql/data/db-files    
           volumeMounts:
             - name: postgres-data
               mountPath: /var/lib/postgresql/data

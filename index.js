@@ -18,7 +18,7 @@ const pool = new Pool({
 
 
 // Get all entries
-app.get('/data', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM items');
     res.json(result.rows);
