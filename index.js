@@ -12,13 +12,18 @@ const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
+  password: process.env.POSTGRES_PASSWORD,
   port: process.env.DB_PORT,
 });
 
 
+app.get('/', (req, res) => {
+  console.log("Checking App Health");
+  res.status(200).send('OK');
+});
+
 // Get all entries
-app.get('/', async (req, res) => {
+app.get('/data', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM items');
     res.json(result.rows);
