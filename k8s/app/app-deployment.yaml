@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: node-api
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: node-api
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: node-api
-          image: nagptuhin/node-api:v3
+          image: nagptuhin/node-api:v9
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

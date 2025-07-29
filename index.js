@@ -23,7 +23,8 @@ app.get('/', (req, res) => {
 });
 
 // Get all entries
-app.get('/data', async (req, res) => {
+app.get('/v1/data', async (req, res) => {
+  console.log("Get All Data")
   try {
     const result = await pool.query('SELECT * FROM items');
     res.json(result.rows);
@@ -34,7 +35,8 @@ app.get('/data', async (req, res) => {
 });
 
 // GET /data?name=John - search entries by name (case-insensitive, partial match)
-app.get('/data', async (req, res) => {
+app.get('/v1/data/byName', async (req, res) => {
+  console.log("Get Data By Name")
   const name = req.query.name;
   try {
     let result;
@@ -54,7 +56,7 @@ app.get('/data', async (req, res) => {
 });
 
 // POST /data - insert new record
-app.post('/data', async (req, res) => {
+app.post('/v1/data', async (req, res) => {
   const { name, age, gender, contact_info } = req.body;
 
   if (!name || !age) {

@@ -2,14 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: node-api-ingress
-  # annotations:
-  #   nginx.ingress.kubernetes.io/rewrite-target: /
+
 spec:
   rules:
-    - host: 34.160.34.26.nip.io
+    - host: 35.186.251.133.nip.io
       http:
         paths:
-          - path: /
+          - path: /v1/
             pathType: Prefix
             backend:
               service:
