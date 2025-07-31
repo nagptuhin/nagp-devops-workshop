@@ -5,7 +5,7 @@ metadata:
 
 spec:
   rules:
-    - host: 35.186.251.133.nip.io
+    - host: 34.160.214.176.nip.io
       http:
         paths:
           - path: /v1/

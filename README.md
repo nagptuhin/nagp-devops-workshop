@@ -9,9 +9,7 @@ Multi-tier Web application deployed in K8s
 - **Docker Hub Image**: https://hub.docker.com/r/nagptuhin/node-api
 - **Live API Endpoint**: http://node.localtest.me/data  # Needs to be Replaced
 
-## 📽️ Demo Video
 
-TODO
 
 ## 🧩 Project Structure
 
@@ -21,15 +19,15 @@ TODO
 
 ## 📌 Endpoints
 
-- `GET /data` – Fetch all data
+- `GET /v1/data` – Fetch all data
 ```
-curl "http://node.localtest.me/data
+curl "http://34.160.214.176.nip.io/v1/data"
 ```
-- `GET /data?name=alice` – Search by name
+- `GET /v1/data/byName?name=tuhin` – Search by name
 ```
-curl "http://node.localtest.me/data?name=Alice"
+curl "http://34.160.214.176.nip.io/v1/data/byName\?name\=tuhin"
 ```
-- `POST /data` – Add new record (JSON body)
+- `POST /v1/data` – Add new record (JSON body)
 
 ```json
 {
@@ -40,52 +38,14 @@ curl "http://node.localtest.me/data?name=Alice"
 }
 ```
 ```
-curl -X POST http://node.localtest.me/data \
+ccurl -X POST http://34.160.214.176.nip.io/v1/data \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "Alice",
+    "name": "Anmol",
     "age": 28,
-    "gender": "Female",
-    "contact_info": "alice@example.com"
+    "gender": "Male",
+    "contact_info": "anmol@example.com"
   }'
 ```
 
-## ✅ Requirement Understanding
 
-- Create a multi-tier system on Kubernetes with:
-  - One microservice (API) to expose data from a database.
-  - One PostgreSQL database to store data.
-- Use Kubernetes features like:
-  - ConfigMap for configuration
-  - Secrets for sensitive data
-  - Persistent volume for DB
-  - Ingress for external access
-- Handle pod restarts with data persistence.
-
-## ✅ Assumptions
-
-- The user will access the API using `node.localtest.me` locally via Rancher Desktop.
-- A single-node Kubernetes cluster is sufficient for demo purposes.
-- PostgreSQL is used with default credentials and port.
-- Sample data is loaded into the database on first startup using Configmap
-
-## ✅ Solution Overview
-
-- **Node.js API**: Connects to PostgreSQL using credentials from ConfigMap and Secret.
-- **PostgreSQL DB**: Initialized with 5+ records via `init.sql`.
-- **Dockerized**: Both app and database run as containers.
-- **Kubernetes**:
-  - API and DB are deployed using `Deployment` + `Service`.
-  - `Ingress` exposes the API externally.
-  - `PersistentVolumeClaim` ensures DB data is preserved.
-
-## ✅ Justification for Resources Utilized
-
-| Resource            | Reason                                                                 |
-|---------------------|------------------------------------------------------------------------|
-| Node.js + Express   | Lightweight, fast to develop, easy to deploy                          |
-| PostgreSQL          | Reliable relational DB with easy init and setup                       |
-| ConfigMap           | Clean separation of DB host, name, and user settings                  |
-| Secret              | Secure handling of DB password                                         |
-| PVC                 | Ensures DB retains data across pod restarts                           |
-| Ingress             | Provides friendly external API access without exposing NodePorts      |
