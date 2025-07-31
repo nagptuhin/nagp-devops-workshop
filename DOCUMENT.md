@@ -49,17 +49,17 @@
 
 
 ## ✅ Test Scenarios
-    1. Show all components One-by-one
-    ![alt text](image.png)
-    2. Explain Ingress
-    ![alt text](image-1.png)
-    3. Explain mapping of Apptier to database.
-    ![alt text](image-2.png)
-    4. API call to show Data
-    ![alt text](image-3.png)
-    5. Delete the Statefulset and show data Persists
-    ![alt text](image-4.png)
-    5. Add a new entry To data - then delete the database POD - then show the Data persistance
-    ![alt text](image-5.png)
-    6. API POD delete and POD will recreate 
-    ![alt text](image-6.png)
+Show all components One-by-one
+![alt text](image.png)
+Explain Ingress
+![alt text](image-1.png)
+Explain mapping of Apptier to database.
+![alt text](image-2.png)
+API call to show Data
+![alt text](image-3.png)
+Delete the Statefulset and show data Persists
+![alt text](image-4.png)
+Add a new entry To data - then delete the database POD - then show the Data persistance
+![alt text](image-5.png)
+API POD delete and POD will recreate 
+![alt text](image-6.png)
